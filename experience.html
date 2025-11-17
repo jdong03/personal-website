@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Experience Timeline - Jason Dong</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="single is-preload">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <h1><a href="index.html">Jason Dong</a></h1>
+      <nav class="links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience Timeline</a></li>
+        </ul>
+      </nav>
+      <nav class="main">
+        <ul>
+          <li class="search">
+            <a class="fa-search" href="#search">Search</a>
+            <form id="search" method="get" action="#">
+              <input type="text" name="query" placeholder="Search" />
+            </form>
+          </li>
+          <li class="menu">
+            <a class="fa-bars" href="#menu">Menu</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Menu -->
+    <section id="menu">
+
+      <!-- Search -->
+      <section>
+        <form class="search" method="get" action="#">
+          <input type="text" name="query" placeholder="Search" />
+        </form>
+      </section>
+
+      <!-- Links -->
+      <section>
+        <ul class="links">
+          <li>
+            <a href="index.html">
+              <h3>Home</h3>
+              <p>Back to main page</p>
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <h3>About</h3>
+              <p>Learn more about Jason</p>
+            </a>
+          </li>
+          <li>
+            <a href="experience.html">
+              <h3>Experience Timeline</h3>
+              <p>View my career journey</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </section>
+
+    <!-- Main -->
+    <div id="main">
+
+      <!-- Post -->
+      <article class="post">
+        <header>
+          <div class="title">
+            <h2>Evolving as an Engineer</h2>
+            <p>Click on each milestone to explore my journey</p>
+          </div>
+          <div class="meta">
+            <time class="published" datetime="2025-11-16">November 16, 2025</time>
+            <a href="#" class="author"><span class="name">Jason Dong</span><img src="images/avatar.jpg" alt="" /></a>
+          </div>
+        </header>
+
+        <style>
+          .timeline-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+          }
+
+          .timeline-header {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+          }
+
+          .timeline {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+          }
+
+          .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(to right, #5dd3d3, #4da5cc, #3d76c6, #2e47c0);
+            z-index: 1;
+          }
+
+          .timeline-item {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+          }
+
+          .timeline-item:hover {
+            transform: scale(1.1);
+          }
+
+          .timeline-year {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+          }
+
+          .timeline-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+          }
+
+          .timeline-circle img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+          }
+
+          .timeline-item.artisan .timeline-circle {
+            background: linear-gradient(135deg, #89e4e4, #5dd3d3);
+          }
+
+          .timeline-item.hashicorp .timeline-circle {
+            background: linear-gradient(135deg, #62b4e8, #4a9ad4);
+          }
+
+          .timeline-item.meta-2025 .timeline-circle {
+            background: linear-gradient(135deg, #5b8dd4, #4a7bc0);
+          }
+
+          .timeline-item.meta-2026 .timeline-circle {
+            background: linear-gradient(135deg, #4a7bc0, #3b6aac);
+          }
+
+          .timeline-item.future .timeline-circle {
+            background: linear-gradient(135deg, #2d4a7c, #1e3a5f);
+          }
+
+          .timeline-item.active .timeline-circle {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+            transform: scale(1.1);
+          }
+
+          .timeline-label {
+            font-size: 0.9em;
+            color: #666;
+            max-width: 140px;
+            margin: 0 auto;
+            line-height: 1.4;
+          }
+
+          .slide-container {
+            margin-top: 50px;
+            min-height: 400px;
+          }
+
+          .slide {
+            display: none;
+            animation: fadeIn 0.5s ease;
+            padding: 60px 40px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          }
+
+          .slide.active {
+            display: block;
+          }
+
+          .slide h3 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            color: #333;
+          }
+
+          .slide p {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #555;
+          }
+
+          .slide.meta {
+            border: 4px solid #6366f1;
+          }
+
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .instruction {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-top: 20px;
+          }
+        </style>
+
+        <!-- Interactive Timeline -->
+        <div class="timeline-container">
+          <div class="timeline-header">EVOLVING AS AN ENGINEER</div>
+
+          <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item artisan" onclick="showSlide('artisan')">
+              <div class="timeline-year">2023</div>
+              <div class="timeline-circle"><img src="images/artisan.jpg" alt="Artisan Partners" /></div>
+              <div class="timeline-label">Software Developer Intern @ Artisan Partners</div>
+            </div>
+
+            <div class="timeline-item hashicorp" onclick="showSlide('hashicorp')">
+              <div class="timeline-year">2024</div>
+              <div class="timeline-circle"><img src="images/hashicorp.jpg" alt="HashiCorp" /></div>
+              <div class="timeline-label">Software Engineer Intern @ HashiCorp</div>
+            </div>
+
+            <div class="timeline-item meta-2025" onclick="showSlide('meta')">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-circle"><img src="images/meta.jpg" alt="Meta" /></div>
+              <div class="timeline-label">Software Engineer Intern @ Meta</div>
+            </div>
+
+            <div class="timeline-item meta-2026" onclick="showSlide('meta-2026')">
+              <div class="timeline-year">2026</div>
+              <div class="timeline-circle"><img src="images/meta.jpg" alt="Meta" /></div>
+              <div class="timeline-label">Incoming Software Engineer @ Meta</div>
+            </div>
+
+            <div class="timeline-item future" onclick="showSlide('future')">
+              <div class="timeline-year">FUTURE</div>
+              <div class="timeline-circle">🌍</div>
+              <div class="timeline-label">Building Systems that Empower Others</div>
+            </div>
+          </div>
+
+          <p class="instruction">Click on any experience above to see details</p>
+
+          <!-- Slide Container -->
+          <div class="slide-container">
+            <!-- Artisan Partners Slide -->
+            <div class="slide" id="slide-artisan">
+              <h3>ARTISAN PARTNERS</h3>
+              <p>
+                Migrated Tomcat apps → AWS Lambda processing 30k+ data fields daily. Built Dropbox
+                data-compliance monitor. Spearheaded data synchronization initiative to ensure data
+                consistency/accuracy.
+              </p>
+            </div>
+
+            <!-- HashiCorp Slide -->
+            <div class="slide" id="slide-hashicorp">
+              <h3>HASHICORP</h3>
+              <p>
+                Built gRPC authorization middleware plugin using Protobuf. Automated access control with
+                reflection to enhance security and streamline development.
+              </p>
+            </div>
+
+            <!-- Meta 2025 Slide -->
+            <div class="slide meta" id="slide-meta">
+              <h3>META</h3>
+              <p>
+                Redesigned Data Fetcher architecture and developed new testing framework; cut
+                integration time 40%. Built new regression testing pipeline and framework.
+              </p>
+            </div>
+
+            <!-- Meta 2026 Slide -->
+            <div class="slide meta" id="slide-meta-2026">
+              <h3>META</h3>
+              <p>
+                Incoming Software Engineer continuing to build impactful systems at scale. Focused on
+                infrastructure, reliability, and developer experience.
+              </p>
+            </div>
+
+            <!-- Future Slide -->
+            <div class="slide" id="slide-future">
+              <h3>BUILDING SYSTEMS THAT EMPOWER OTHERS</h3>
+              <p>
+                Looking ahead to create scalable, reliable systems that make a meaningful impact.
+                Combining technical expertise with a passion for solving complex problems and
+                empowering teams through better tools and infrastructure.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function showSlide(slideId) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            // Remove active state from all timeline items
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => item.classList.remove('active'));
+
+            // Show selected slide
+            const targetSlide = document.getElementById('slide-' + slideId);
+            if (targetSlide) {
+              targetSlide.classList.add('active');
+            }
+
+            // Add active state to clicked timeline item
+            const clickedItem = document.querySelector('.timeline-item.' + slideId.split('-')[0]);
+            if (clickedItem) {
+              clickedItem.classList.add('active');
+            }
+          }
+
+          // Show first slide by default
+          window.addEventListener('DOMContentLoaded', function () {
+            showSlide('artisan');
+          });
+        </script>
+
+        <footer style="margin-top: 60px;">
+          <ul class="actions">
+            <li><a href="about.html" class="button large">About Jason</a></li>
+            <li><a href="index.html" class="button large">Back to Home</a></li>
+          </ul>
+        </footer>
+      </article>
+
+    </div>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+
+      <!-- Intro -->
+      <section id="intro">
+        <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
+        <header>
+          <h2>Jason Dong</h2>
+          <p>Welcome to my personal website</p>
+        </header>
+      </section>
+
+      <!-- About -->
+      <section class="blurb">
+        <h2>My Journey</h2>
+        <p>An interactive timeline showcasing my evolution as a software engineer through internships at leading tech
+          companies.</p>
+        <ul class="actions">
+          <li><a href="about.html" class="button">About Jason</a></li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+        <ul class="icons">
+          <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+          <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+          <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <p class="copyright">&copy; Jason Dong. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
