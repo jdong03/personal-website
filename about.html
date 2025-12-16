@@ -6,6 +6,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    #header h1 a.active {
+      font-weight: bold;
+      color: #f56a6a;
+    }
+
+    #header .links a.active {
+      font-weight: bold;
+      color: #f56a6a;
+    }
+
+    #footer .icons {
+      text-align: left;
+      padding-left: 0;
+    }
+  </style>
 </head>
 
 <body class="single is-preload">
@@ -15,12 +31,12 @@
 
     <!-- Header -->
     <header id="header">
-      <h1><a href="index.html">Jason Dong</a></h1>
+      <h1><a href="index.html">Home</a></h1>
       <nav class="links">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html" class="active">About</a></li>
           <li><a href="experience.html">Experience Timeline</a></li>
+          <li><a href="projects.html">Projects</a></li>
         </ul>
       </nav>
       <nav class="main">
@@ -69,6 +85,12 @@
               <p>View my career journey</p>
             </a>
           </li>
+          <li>
+            <a href="projects.html">
+              <h3>Projects</h3>
+              <p>Explore my work</p>
+            </a>
+          </li>
         </ul>
       </section>
 
@@ -84,23 +106,27 @@
             <h2>About Jason Dong</h2>
             <p>Computer Science major at Cornell University</p>
           </div>
-          <div class="meta">
-            <time class="published" datetime="2025-11-16">November 16, 2025</time>
-            <a href="#" class="author"><span class="name">Jason Dong</span><img src="images/avatar.jpg" alt="" /></a>
-          </div>
         </header>
 
         <!-- Photo of Jason -->
         <div style="text-align: center; margin: 40px 0;">
-          <img src="images/jason-photo.jpg" alt="Jason Dong" style="
+          <div style="
             width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border: 5px solid #fff;
-          " />
+            height: 345px;
+            margin: 0 auto;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: #333;
+            padding: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          ">
+            <img src="images/jason-photo.jpg" alt="Jason Dong" style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            " />
+          </div>
         </div>
         <!-- Replace 'images/jason-photo.jpg' with your actual photo file -->
 
@@ -117,19 +143,23 @@
         <h3>Name Pronunciation</h3>
         <p>Listen to how to pronounce my name and pronouns:</p>
         <audio controls preload="auto" style="width: 100%; max-width: 500px;">
-          <source src="audio/name-pronunciation.mp3" type="audio/mpeg">
-          <source src="audio/name-pronunciation.mp3" type="audio/mp3">
+          <source src="audio/name-pronounciation.mp3" type="audio/mpeg">
+          <source src="audio/name-pronounciation.mp3" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
-        <!-- Replace 'audio/name-pronunciation.mp3' with your actual audio file -->
         <!-- To add your audio file: Create an 'audio' folder in your website directory and place your recording there -->
 
-        <footer>
-          <ul class="actions">
-            <li><a href="experience.html" class="button large">View My Work</a></li>
-            <li><a href="index.html" class="button large">Back to Home</a></li>
-          </ul>
-        </footer>
+        <!-- Introduction Video -->
+        <h3>Introduction Video</h3>
+        <p>A short note on what I care about and the kind of work I'm excited to do.</p>
+        <div style="text-align: center; margin: 40px 0;">
+          <video controls preload="metadata"
+            style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+            <source src="website_personal_video.mov" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+        </div>
+
       </article>
 
     </div>
@@ -137,31 +167,17 @@
     <!-- Sidebar -->
     <section id="sidebar">
 
-      <!-- Intro -->
-      <section id="intro">
-        <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
-        <header>
-          <h2>Jason Dong</h2>
-          <p>Welcome to my personal website</p>
-        </header>
-      </section>
-
-      <!-- About -->
-      <section class="blurb">
-        <h2>Connect</h2>
-        <p>Learn more about my work and connect with me on social media or via email.</p>
-        <ul class="actions">
-          <li><a href="experience.html" class="button">View My Work</a></li>
-        </ul>
-      </section>
-
       <!-- Footer -->
       <section id="footer">
         <ul class="icons">
-          <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-          <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-          <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-          <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+          <li><a href="https://x.com/JasonDong03" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+          </li>
+          <li><a href="https://www.facebook.com/jason.dong.963/" class="icon brands fa-facebook-f"><span
+                class="label">Facebook</span></a></li>
+          <li><a href="https://www.instagram.com/jasondong03" class="icon brands fa-instagram"><span
+                class="label">Instagram</span></a></li>
+          <li><a href="mailto:jd876@cornell.edu" class="icon solid fa-envelope"><span class="label">Email</span></a>
+          </li>
         </ul>
         <p class="copyright">&copy; Jason Dong. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
       </section>

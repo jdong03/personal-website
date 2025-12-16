@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Projects - Jason Dong</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    #header h1 a.active {
+      font-weight: bold;
+      color: #f56a6a;
+    }
+
+    #header .links a.active {
+      font-weight: bold;
+      color: #f56a6a;
+    }
+
+    #footer .icons {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .project-card {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 1.2em;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 30px;
+    }
+
+    .project-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .project-title a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .project-title a:hover {
+      color: #f56a6a;
+    }
+
+    .project-description {
+      font-size: 1em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-header h2 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body class="single is-preload">
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <h1><a href="index.html">Home</a></h1>
+      <nav class="links">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience Timeline</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+      </nav>
+      <nav class="main">
+        <ul>
+          <li class="search">
+            <a class="fa-search" href="#search">Search</a>
+            <form id="search" method="get" action="#">
+              <input type="text" name="query" placeholder="Search" />
+            </form>
+          </li>
+          <li class="menu">
+            <a class="fa-bars" href="#menu">Menu</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Menu -->
+    <section id="menu">
+
+      <!-- Search -->
+      <section>
+        <form class="search" method="get" action="#">
+          <input type="text" name="query" placeholder="Search" />
+        </form>
+      </section>
+
+      <!-- Links -->
+      <section>
+        <ul class="links">
+          <li>
+            <a href="index.html">
+              <h3>Home</h3>
+              <p>Back to main page</p>
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <h3>About</h3>
+              <p>Learn more about Jason</p>
+            </a>
+          </li>
+          <li>
+            <a href="experience.html">
+              <h3>Experience Timeline</h3>
+              <p>View my career journey</p>
+            </a>
+          </li>
+          <li>
+            <a href="projects.html">
+              <h3>Projects</h3>
+              <p>Explore my work</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </section>
+
+    <!-- Main -->
+    <div id="main">
+
+      <!-- Post -->
+      <article class="post">
+        <header>
+          <div class="title">
+            <h2>My Projects</h2>
+            <p>A collection of personal and professional work</p>
+          </div>
+        </header>
+
+        <div class="projects-container">
+          <div class="projects-grid">
+
+            <!-- PROJECT 1 - StackSolution -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/stack_solution_logo.png" alt="StackSolution" />
+                <!-- Replace with your project image -->
+              </div>
+              <div class="project-content">
+                <div class="project-title">
+                  <a href="https://github.com/jdong03/stacksolution" target="_blank">StackSolution</a>
+                </div>
+                <div class="project-description">
+                  A poker solver for No Limit Texas Hold'em using Counterfactual Regret Minimization (CFR) and no-regret
+                  learning principles to achieve Nash equilibrium strategies.
+                </div>
+              </div>
+            </div>
+
+            <!-- PROJECT 2 - Reaction Time -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/reaction_time_logo.png" alt="Reaction Time" />
+                <!-- Replace with your project image -->
+              </div>
+              <div class="project-content">
+                <div class="project-title">
+                  <a href="https://github.com/jdong03/Reaction-Time" target="_blank">Reaction Time</a>
+                </div>
+                <div class="project-description">
+                  Press GO and click on each of the circles to make them disappear. See how fast you can complete the
+                  game and test your reaction time!
+                </div>
+              </div>
+            </div>
+
+            <!-- PROJECT 3 - Tip Calculator -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="images/tip_calculator_logo.png" alt="Tip Calculator" />
+                <!-- Replace with your project image -->
+              </div>
+              <div class="project-content">
+                <div class="project-title">
+                  <a href="https://github.com/jdong03/Tip-Calculator" target="_blank">Tip Calculator</a>
+                </div>
+                <div class="project-description">
+                  Calculator for calculating a tip from a bill amount. Can change tip percent and party amount to split
+                  the bill evenly.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+
+      <!-- Footer -->
+      <section id="footer">
+        <ul class="icons">
+          <li><a href="https://x.com/JasonDong03" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+          </li>
+          <li><a href="https://www.facebook.com/jason.dong.963/" class="icon brands fa-facebook-f"><span
+                class="label">Facebook</span></a></li>
+          <li><a href="https://www.instagram.com/jasondong03" class="icon brands fa-instagram"><span
+                class="label">Instagram</span></a></li>
+          <li><a href="mailto:jd876@cornell.edu" class="icon solid fa-envelope"><span class="label">Email</span></a>
+          </li>
+        </ul>
+        <p class="copyright">&copy; Jason Dong. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

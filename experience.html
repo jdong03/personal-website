@@ -6,6 +6,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    #header h1 a.active {
+      font-weight: bold;
+      color: #f56a6a;
+    }
+
+    #header .links a.active {
+      font-weight: bold;
+      color: #f56a6a;
+    }
+
+    #footer .icons {
+      text-align: left;
+      padding-left: 0;
+    }
+  </style>
 </head>
 
 <body class="single is-preload">
@@ -15,12 +31,12 @@
 
     <!-- Header -->
     <header id="header">
-      <h1><a href="index.html">Jason Dong</a></h1>
+      <h1><a href="index.html">Home</a></h1>
       <nav class="links">
         <ul>
-          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="experience.html">Experience Timeline</a></li>
+          <li><a href="experience.html" class="active">Experience Timeline</a></li>
+          <li><a href="projects.html">Projects</a></li>
         </ul>
       </nav>
       <nav class="main">
@@ -69,6 +85,12 @@
               <p>View my career journey</p>
             </a>
           </li>
+          <li>
+            <a href="projects.html">
+              <h3>Projects</h3>
+              <p>Explore my work</p>
+            </a>
+          </li>
         </ul>
       </section>
 
@@ -83,10 +105,6 @@
           <div class="title">
             <h2>Evolving as an Engineer</h2>
             <p>Click on each milestone to explore my journey</p>
-          </div>
-          <div class="meta">
-            <time class="published" datetime="2025-11-16">November 16, 2025</time>
-            <a href="#" class="author"><span class="name">Jason Dong</span><img src="images/avatar.jpg" alt="" /></a>
           </div>
         </header>
 
@@ -144,8 +162,8 @@
 
           .timeline-circle {
             width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            height: 138px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             margin: 0 auto 15px;
             display: flex;
             align-items: center;
@@ -196,54 +214,119 @@
             line-height: 1.4;
           }
 
-          .slide-container {
-            margin-top: 50px;
-            min-height: 400px;
-          }
-
-          .slide {
+          /* Modal Styles */
+          .modal-overlay {
             display: none;
-            animation: fadeIn 0.5s ease;
-            padding: 60px 40px;
-            background: #f8f8f8;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
           }
 
-          .slide.active {
-            display: block;
+          .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
           }
 
-          .slide h3 {
+          .modal-content {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px 60px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            position: relative;
+            animation: modalSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+          }
+
+          .modal-content.meta {
+            border: 4px solid #6366f1;
+            box-shadow: 0 25px 70px rgba(99, 102, 241, 0.6);
+          }
+
+          .modal-content.artisan {
+            border: 4px solid #888888;
+            box-shadow: 0 25px 70px rgba(136, 136, 136, 0.4);
+          }
+
+          .modal-content.hashicorp {
+            border: 4px solid #000000;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+          }
+
+          .modal-content.future {
+            border: 4px solid #22c55e;
+            box-shadow: 0 25px 70px rgba(34, 197, 94, 0.5);
+          }
+
+          .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            background: #f0f0f0;
+            border: none;
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            opacity: 0.6;
+          }
+
+          .modal-close:hover {
+            color: #333;
+            opacity: 1;
+          }
+
+          .modal-content h3 {
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 30px;
             letter-spacing: 3px;
             color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
           }
 
-          .slide p {
+          .modal-content p {
             text-align: center;
             font-size: 1.2em;
             line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
             color: #555;
           }
 
-          .slide.meta {
-            border: 4px solid #6366f1;
+          @keyframes modalSlideIn {
+            0% {
+              opacity: 0;
+              transform: translateY(-50px) scale(0.9);
+            }
+
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
           }
 
           @keyframes fadeIn {
             from {
               opacity: 0;
-              transform: translateY(20px);
             }
 
             to {
               opacity: 1;
-              transform: translateY(0);
             }
           }
 
@@ -294,126 +377,108 @@
           </div>
 
           <p class="instruction">Click on any experience above to see details</p>
-
-          <!-- Slide Container -->
-          <div class="slide-container">
-            <!-- Artisan Partners Slide -->
-            <div class="slide" id="slide-artisan">
-              <h3>ARTISAN PARTNERS</h3>
-              <p>
-                Migrated Tomcat apps → AWS Lambda processing 30k+ data fields daily. Built Dropbox
-                data-compliance monitor. Spearheaded data synchronization initiative to ensure data
-                consistency/accuracy.
-              </p>
-            </div>
-
-            <!-- HashiCorp Slide -->
-            <div class="slide" id="slide-hashicorp">
-              <h3>HASHICORP</h3>
-              <p>
-                Built gRPC authorization middleware plugin using Protobuf. Automated access control with
-                reflection to enhance security and streamline development.
-              </p>
-            </div>
-
-            <!-- Meta 2025 Slide -->
-            <div class="slide meta" id="slide-meta">
-              <h3>META</h3>
-              <p>
-                Redesigned Data Fetcher architecture and developed new testing framework; cut
-                integration time 40%. Built new regression testing pipeline and framework.
-              </p>
-            </div>
-
-            <!-- Meta 2026 Slide -->
-            <div class="slide meta" id="slide-meta-2026">
-              <h3>META</h3>
-              <p>
-                Incoming Software Engineer continuing to build impactful systems at scale. Focused on
-                infrastructure, reliability, and developer experience.
-              </p>
-            </div>
-
-            <!-- Future Slide -->
-            <div class="slide" id="slide-future">
-              <h3>BUILDING SYSTEMS THAT EMPOWER OTHERS</h3>
-              <p>
-                Looking ahead to create scalable, reliable systems that make a meaningful impact.
-                Combining technical expertise with a passion for solving complex problems and
-                empowering teams through better tools and infrastructure.
-              </p>
-            </div>
-          </div>
         </div>
 
-        <script>
-          function showSlide(slideId) {
-            // Hide all slides
-            const slides = document.querySelectorAll('.slide');
-            slides.forEach(slide => slide.classList.remove('active'));
-
-            // Remove active state from all timeline items
-            const items = document.querySelectorAll('.timeline-item');
-            items.forEach(item => item.classList.remove('active'));
-
-            // Show selected slide
-            const targetSlide = document.getElementById('slide-' + slideId);
-            if (targetSlide) {
-              targetSlide.classList.add('active');
-            }
-
-            // Add active state to clicked timeline item
-            const clickedItem = document.querySelector('.timeline-item.' + slideId.split('-')[0]);
-            if (clickedItem) {
-              clickedItem.classList.add('active');
-            }
-          }
-
-          // Show first slide by default
-          window.addEventListener('DOMContentLoaded', function () {
-            showSlide('artisan');
-          });
-        </script>
-
-        <footer style="margin-top: 60px;">
-          <ul class="actions">
-            <li><a href="about.html" class="button large">About Jason</a></li>
-            <li><a href="index.html" class="button large">Back to Home</a></li>
-          </ul>
-        </footer>
       </article>
 
     </div>
 
+    <!-- Modal Overlay (outside of main content) -->
+    <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+      <div class="modal-content" id="modal-body" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div id="modal-text"></div>
+      </div>
+    </div>
+
+    <script>
+      const experienceData = {
+        'artisan': {
+          title: 'ARTISAN PARTNERS',
+          content: 'Migrated Tomcat apps → AWS Lambda processing 30k+ data fields daily. Built Dropbox data-compliance monitor. Spearheaded data synchronization initiative to ensure data consistency/accuracy.',
+          styleClass: 'artisan'
+        },
+        'hashicorp': {
+          title: 'HASHICORP',
+          content: 'Built gRPC authorization middleware plugin using Protobuf. Automated access control with reflection to enhance security and streamline development.',
+          styleClass: 'hashicorp'
+        },
+        'meta': {
+          title: 'META',
+          content: 'Redesigned Data Fetcher architecture and developed new testing framework; cut integration time 40%. Built new regression testing pipeline and framework.',
+          styleClass: 'meta'
+        },
+        'meta-2026': {
+          title: 'META',
+          content: 'Incoming Software Engineer continuing to build impactful systems at scale. Focused on infrastructure, reliability, and developer experience.',
+          styleClass: 'meta'
+        },
+        'future': {
+          title: 'BUILDING SYSTEMS THAT EMPOWER OTHERS',
+          content: 'Looking ahead to create scalable, reliable systems that make a meaningful impact. Combining technical expertise with a passion for solving complex problems and empowering teams through better tools and infrastructure.',
+          styleClass: 'future'
+        }
+      };
+
+      function showSlide(slideId) {
+        const modal = document.getElementById('modal');
+        const modalBody = document.getElementById('modal-body');
+        const modalText = document.getElementById('modal-text');
+        const data = experienceData[slideId];
+
+        if (data) {
+          // Update modal content
+          modalText.innerHTML = '<h3>' + data.title + '</h3><p>' + data.content + '</p>';
+
+          // Remove all style classes and add the appropriate one
+          modalBody.classList.remove('artisan', 'hashicorp', 'meta', 'future');
+          if (data.styleClass) {
+            modalBody.classList.add(data.styleClass);
+          }
+
+          // Show modal
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Update active state on timeline items
+        const items = document.querySelectorAll('.timeline-item');
+        items.forEach(item => item.classList.remove('active'));
+
+        const clickedItem = document.querySelector('.timeline-item.' + slideId.split('-')[0]);
+        if (clickedItem) {
+          clickedItem.classList.add('active');
+        }
+      }
+
+      function closeModal(event) {
+        const modal = document.getElementById('modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+
+      // Close modal on Escape key
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+    </script>
+
     <!-- Sidebar -->
     <section id="sidebar">
-
-      <!-- Intro -->
-      <section id="intro">
-        <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
-        <header>
-          <h2>Jason Dong</h2>
-          <p>Welcome to my personal website</p>
-        </header>
-      </section>
-
-      <!-- About -->
-      <section class="blurb">
-        <h2>My Journey</h2>
-        <p>An interactive timeline showcasing my evolution as a software engineer through internships at leading tech
-          companies.</p>
-        <ul class="actions">
-          <li><a href="about.html" class="button">About Jason</a></li>
-        </ul>
-      </section>
 
       <!-- Footer -->
       <section id="footer">
         <ul class="icons">
-          <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-          <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-          <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-          <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+          <li><a href="https://x.com/JasonDong03" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+          </li>
+          <li><a href="https://www.facebook.com/jason.dong.963/" class="icon brands fa-facebook-f"><span
+                class="label">Facebook</span></a></li>
+          <li><a href="https://www.instagram.com/jasondong03" class="icon brands fa-instagram"><span
+                class="label">Instagram</span></a></li>
+          <li><a href="mailto:jd876@cornell.edu" class="icon solid fa-envelope"><span class="label">Email</span></a>
+          </li>
         </ul>
         <p class="copyright">&copy; Jason Dong. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
       </section>
